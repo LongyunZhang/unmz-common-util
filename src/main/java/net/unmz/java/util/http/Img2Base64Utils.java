@@ -18,11 +18,11 @@ import java.io.*;
 public class Img2Base64Utils {
 
     public static void main(String[] args) {
-        String imgFile = "C:\\Users\\Administrator\\Desktop\\photo\\1.jpg";//待处理的图片
+        String imgFile = "E:\\verifies\\9T6L.jpg";//待处理的图片
         String imgBase = getImgStr(imgFile);
         System.out.println(imgBase.length());
         System.out.println(imgBase);
-        String imgFilePath = "C:\\Users\\Administrator\\Desktop\\photo\\332.jpg";//新生成的图片
+        String imgFilePath = "C:\\Users\\longyun\\Desktop\\332.jpg";//新生成的图片
         generateImage(imgBase, imgFilePath);
     }
 

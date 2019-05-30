@@ -1,7 +1,7 @@
 package net.unmz.java.util.sms;
 
 import net.unmz.java.util.http.HttpUtils;
-import net.unmz.java.util.json.JsonUtils;
+import net.unmz.java.util.json.FastjsonUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Project Name: 常用工具类集合
  * 功能描述：短信工具类 <br/>
- * 本项目依托于赛邮云通信完成短信发送
+ * 本项目依托于赛邮云通信完成短信发送  https://www.mysubmail.com/
  *
  * @author faritor@unmz.net
  * @version 1.0
@@ -35,7 +35,7 @@ public class SmsUtils {
         try {
             String result = HttpUtils.doPost(host, path, null, null, body);
             System.out.println("sms response message: " + result);
-            SmsResultVo vo = JsonUtils.toBean(result, SmsResultVo.class);
+            SmsResultVo vo = FastjsonUtils.toBean(result, SmsResultVo.class);
             if (vo.getStatus().equalsIgnoreCase("success"))
                 return true;
         } catch (Exception e) {

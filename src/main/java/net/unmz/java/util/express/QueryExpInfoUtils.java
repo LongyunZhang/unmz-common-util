@@ -1,7 +1,7 @@
 package net.unmz.java.util.express;
 
 import net.unmz.java.util.http.HttpUtils;
-import net.unmz.java.util.json.JsonUtils;
+import net.unmz.java.util.json.FastjsonUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -135,7 +135,7 @@ public class QueryExpInfoUtils {
     public static ExpResultInfoVo getExpResultInfoDto(String host, String path, Map<String, String> headers, Map<String, String> queries) throws Exception {
         String result = HttpUtils.doGet(host, path, headers, queries);
         //获取response的body
-        return JsonUtils.toBean(result, ExpResultInfoVo.class);
+        return FastjsonUtils.toBean(result, ExpResultInfoVo.class);
     }
 
     /**

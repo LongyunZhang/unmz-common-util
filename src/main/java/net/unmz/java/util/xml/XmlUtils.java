@@ -9,7 +9,7 @@ package net.unmz.java.util.xml;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import net.unmz.java.util.json.JsonUtils;
+import net.unmz.java.util.json.FastjsonUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -201,7 +201,7 @@ public class XmlUtils {
     public static String toString(String body,String encode) throws DocumentException, SAXException {
         Element element = readerXml(body, encode);
         Map<String, String> map = toMap(element);
-        return JsonUtils.MapToJSON(map);
+        return FastjsonUtils.MapToJSON(map);
     }
 
 }

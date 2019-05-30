@@ -1,12 +1,10 @@
 package net.unmz.java.util.http;
 
-import net.unmz.java.util.json.JsonUtils;
+import net.unmz.java.util.json.FastjsonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -19,7 +17,6 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import javax.net.ssl.SSLContext;
@@ -31,9 +28,7 @@ import java.net.URLEncoder;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -148,7 +143,7 @@ public class HttpUtils {
                                 Map<String, String> headers,
                                 Map<String, String> queries,
                                 Map<String, String> bodies) throws Exception {
-        return EntityUtils.toString(doPostResponse(host, path, headers, queries, JsonUtils.toJSON(bodies)).getEntity(), "utf-8");
+        return EntityUtils.toString(doPostResponse(host, path, headers, queries, FastjsonUtils.toJSON(bodies)).getEntity(), "utf-8");
     }
 
     /**
@@ -441,7 +436,7 @@ public class HttpUtils {
                                   Map<String, String> headers,
                                   Map<String, String> queries,
                                   Map<String, String> body) throws Exception {
-        return EntityUtils.toString(doDeleteResponse(host, path, headers, queries, JsonUtils.toJSON(body)).getEntity(), "utf-8");
+        return EntityUtils.toString(doDeleteResponse(host, path, headers, queries, FastjsonUtils.toJSON(body)).getEntity(), "utf-8");
     }
 
     /**
