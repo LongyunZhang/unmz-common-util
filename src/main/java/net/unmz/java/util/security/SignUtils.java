@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * Project Name: 常用工具类集合
  *
- * 功能描述：签名用的工具箱
+ * 功能描述：签名用的工具箱——————给url参数签名
  *
  * @author faritor@unmz.net
  * @version 1.0

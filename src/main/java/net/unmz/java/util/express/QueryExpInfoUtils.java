@@ -11,6 +11,7 @@ import java.util.Map;
 
 /**
  * Project Name: 常用工具类集合
+ *
  * 功能描述：快递查询工具类
  *
  * @author faritor@unmz.net

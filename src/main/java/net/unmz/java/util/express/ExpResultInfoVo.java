@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Project Name: 常用工具类集合
+ *
  * 功能描述：快递查询数据模型
  *
  * @author faritor@unmz.net

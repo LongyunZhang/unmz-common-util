@@ -2,6 +2,7 @@ package net.unmz.java.util.unicode;
 
 /**
  * Project Name: 常用工具类集合
+ *
  * 功能描述：Unicode转换工具类
  *
  * @author faritor@unmz.net
@@ -13,6 +14,7 @@ public class UnicodeUtils {
 
     /**
      * 字符转Unicode
+     *
      * @param gbString
      * @return
      */

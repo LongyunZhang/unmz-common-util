@@ -31,9 +31,7 @@ public class DateUtils {
 
     private static DateUtils dateUtil = new DateUtils();
 
-    private DateUtils() {
-
-    }
+    private DateUtils() {}
 
     public static DateUtils getInstance() {
         return dateUtil;
@@ -385,32 +383,6 @@ public class DateUtils {
     }
 
     /**
-     * 根据时间变量返回时间字符串
-     *
-     * @param pattern 时间字符串样式
-     * @param date    时间变量
-     * @return 返回时间字符串
-     */
-    public static String dateToString(Date date, String pattern) {
-
-        if (date == null) {
-
-            return null;
-        }
-
-        try {
-
-            SimpleDateFormat sfDate = new SimpleDateFormat(pattern);
-            sfDate.setLenient(false);
-
-            return sfDate.format(date);
-        } catch (Exception e) {
-
-            return null;
-        }
-    }
-
-    /**
      * 根据时间变量返回时间字符串 yyyy-MM-dd
      *
      * @param date
@@ -421,6 +393,27 @@ public class DateUtils {
     }
 
     /**
+     * 根据时间变量返回时间字符串
+     *
+     * @param pattern 时间字符串样式
+     * @param date    时间变量
+     * @return 返回时间字符串
+     */
+    public static String dateToString(Date date, String pattern) {
+        if (date == null) {
+            return null;
+        }
+        try {
+            SimpleDateFormat sfDate = new SimpleDateFormat(pattern);
+            sfDate.setLenient(false);
+            return sfDate.format(date);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+    /**
      * 返回当前时间
      *
      * @return 返回当前时间
@@ -428,7 +421,6 @@ public class DateUtils {
     public static Date getCurrentDateTime() {
         java.util.Calendar calNow = java.util.Calendar.getInstance();
         java.util.Date dtNow = calNow.getTime();
-
         return dtNow;
     }
 
@@ -470,11 +462,9 @@ public class DateUtils {
      * @return java.util.Date
      */
     public static Date dateIncreaseByDay(Date date, int days) {
-
         Calendar cal = GregorianCalendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
-
         return cal.getTime();
     }
 
@@ -780,7 +770,6 @@ public class DateUtils {
         ca.set(Calendar.SECOND, 59);
         return ca.getTime();
     }
-
 
     public ArrayList<Date> getDateList(Date startTime, Date endTime) {
         ArrayList<Date> timeList = new ArrayList<Date>();
@@ -1465,4 +1454,21 @@ public class DateUtils {
 //            remainDays += minutes + "小时";
 //        return remainDays;
 //    }
+
+
+    public static void main(String[] args) {
+        Date nowDay = new Date();
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATE_ONLY));
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME));
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.SHORT_DATE_FORMAT));
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.HMS_FORMAT));
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME_14));
+
+        Date date1 = DateUtils.dateIncreaseByDay(nowDay, 5);
+        System.out.println("5天后: " + DateUtils.dateToString(date1, DateUtils.DATE_FORMAT_DATE_ONLY));
+
+        String nowDateStr = "20190501";
+        System.out.println("中国日期：" + getChineseDate(nowDateStr));
+
+    }
 }
