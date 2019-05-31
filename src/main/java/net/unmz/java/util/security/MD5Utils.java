@@ -8,7 +8,8 @@ import java.security.SignatureException;
 
 /**
  * Project Name: 常用工具类集合
- * 功能描述：MD5签名
+ *
+ * 功能描述：MD5签名——————hash算法，不可逆
  *
  * @author faritor@unmz.net
  * @version 1.0
@@ -174,4 +175,12 @@ public class MD5Utils {
         }
     }
 
+    public static void main(String[] args) {
+        String content = "原始报文";
+        String key = "I am key";
+        String signedContent = MD5Utils.sign(content, key, "UTF-8");
+        Boolean res = MD5Utils.verify(content, signedContent, key, "UTF-8");
+
+        System.out.println(key + " | " + content + " | " + signedContent + " | " + res);
+    }
 }

@@ -23,7 +23,7 @@ import java.security.SecureRandom;
 public class AESUtils {
 
     /**
-     * AES 解密
+     * AES 加密
      *
      * @param key
      * @param encryptedData
@@ -141,6 +141,16 @@ public class AESUtils {
         }
         //如果有错就返加null
         return null;
+    }
+
+    public static void main(String[] args) {
+        String secret = "miyao";
+        String content = "原始报文";
+        String encodedContent = AESUtils.encode(content, secret);
+        String decodedContent = AESUtils.decode(encodedContent, secret);
+
+        System.out.println(content + " | " + encodedContent + " | " + decodedContent);
+
     }
 
 }

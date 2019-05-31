@@ -352,8 +352,13 @@ public class Base64Utils {
         }
     }
 
-    // /////////////////////////////////////////////////
-    // end of test code.
-    // /////////////////////////////////////////////////
+    public static void main(String[] args) {
+        String content = "原始报文";
+
+        String encodedContent = Base64Utils.encode(content);
+        String decodedContent = Base64Utils.decode(encodedContent);
+
+        System.out.println(content + " | " + encodedContent + " | " + decodedContent);
+    }
 
 }
