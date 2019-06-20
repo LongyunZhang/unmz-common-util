@@ -97,6 +97,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-nop</artifactId>
+             <version>1.7.2</version>
+         </dependency>
+s
 
 
     </dependencies>
