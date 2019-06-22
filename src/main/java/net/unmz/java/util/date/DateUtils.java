@@ -80,7 +80,6 @@ public class DateUtils {
      * @return
      */
     public static Date dateFormart(Date date) {
-
         return stringToDate(dateToString(date, ISO_EXPANDED_DATE_FORMAT));
     }
 
@@ -91,18 +90,14 @@ public class DateUtils {
      * @return
      */
     protected static final float normalizedJulian(float JD) {
-
         float f = Math.round(JD + 0.5f) - 0.5f;
-
         return f;
     }
 
-    public static String getGrpEndDate(String effdate, String loadEndDate,
-                                       String loadBeginDate) {
+    public static String getGrpEndDate(String effdate, String loadEndDate, String loadBeginDate) {
         long qoutDays = getDateQuot(effdate, loadEndDate);
         String endDate = "";
         if (qoutDays >= 365) {
-
             endDate = dateToString(
                     addDay(addYear(stringToDate(loadBeginDate), 1), -1),
                     "yyyy-MM-dd");
@@ -122,7 +117,6 @@ public class DateUtils {
      * @return the Gregorian date
      */
     public static final Date toDate(float JD) {
-
         /*
          * To convert a Julian Day Number to a Gregorian date, assume that it is
          * for 0 hours, Greenwich time (so that it ends in 0.5). Do the
@@ -202,7 +196,6 @@ public class DateUtils {
      * @return the days between two dates.
      */
     public static final int daysBetween(Calendar early, Calendar late) {
-
         return (int) (toJulian(late) - toJulian(early));
     }
 
@@ -216,7 +209,6 @@ public class DateUtils {
      * @return the julian day number
      */
     public static final float toJulian(Calendar c) {
-
         int Y = c.get(Calendar.YEAR);
         int M = c.get(Calendar.MONTH);
         int D = c.get(Calendar.DATE);
@@ -240,7 +232,6 @@ public class DateUtils {
      * @return the julian day number
      */
     public static final float toJulian(Date date) {
-
         Calendar c = Calendar.getInstance();
         c.setTime(date);
 
@@ -257,9 +248,7 @@ public class DateUtils {
      * @return
      * @throws ParseException
      */
-    public static final String dateIncrease(String isoString, String fmt,
-                                            int field, int amount) {
-
+    public static final String dateIncrease(String isoString, String fmt, int field, int amount) {
         try {
             Calendar cal = GregorianCalendar.getInstance();
             cal.setTime(stringToDate(isoString, fmt, true));
@@ -282,9 +271,7 @@ public class DateUtils {
      * @param fmt       use formating char's
      * @throws ParseException if an unknown field value is given.
      */
-    public static final String roll(String isoString, String fmt, int field,
-                                    boolean up) throws ParseException {
-
+    public static final String roll(String isoString, String fmt, int field, boolean up) throws ParseException {
         Calendar cal = GregorianCalendar.getInstance();
         cal.setTime(stringToDate(isoString, fmt));
         cal.roll(field, up);
@@ -301,9 +288,7 @@ public class DateUtils {
      * @param up        Indicates if rolling up or rolling down the field value.
      * @throws ParseException if an unknown field value is given.
      */
-    public static final String roll(String isoString, int field, boolean up)
-            throws ParseException {
-
+    public static final String roll(String isoString, int field, boolean up) throws ParseException {
         return roll(isoString, DATETIME_PATTERN, field, up);
     }
 
@@ -315,16 +300,11 @@ public class DateUtils {
      * @param lenient  日期越界标志
      * @return
      */
-    public static Date stringToDate(String dateText, String format,
-                                    boolean lenient) {
-
+    public static Date stringToDate(String dateText, String format, boolean lenient) {
         if (dateText == null) {
-
             return null;
         }
-
         DateFormat df = null;
-
         try {
 
             if (format == null) {
@@ -352,7 +332,6 @@ public class DateUtils {
      * @return
      */
     public static Date stringToDate(String dateString, String format) {
-
         return stringToDate(dateString, format, LENIENT_DATE);
     }
 
