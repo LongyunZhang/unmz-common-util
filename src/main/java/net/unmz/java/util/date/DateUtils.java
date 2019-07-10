@@ -80,7 +80,6 @@ public class DateUtils {
      * @return
      */
     public static Date dateFormart(Date date) {
-
         return stringToDate(dateToString(date, ISO_EXPANDED_DATE_FORMAT));
     }
 
@@ -91,9 +90,7 @@ public class DateUtils {
      * @return
      */
     protected static final float normalizedJulian(float JD) {
-
         float f = Math.round(JD + 0.5f) - 0.5f;
-
         return f;
     }
 
@@ -101,7 +98,6 @@ public class DateUtils {
         long qoutDays = getDateQuot(effdate, loadEndDate);
         String endDate = "";
         if (qoutDays >= 365) {
-
             endDate = dateToString(
                     addDay(addYear(stringToDate(loadBeginDate), 1), -1),
                     "yyyy-MM-dd");
@@ -121,7 +117,6 @@ public class DateUtils {
      * @return the Gregorian date
      */
     public static final Date toDate(float JD) {
-
         /*
          * To convert a Julian Day Number to a Gregorian date, assume that it is
          * for 0 hours, Greenwich time (so that it ends in 0.5). Do the
@@ -239,6 +234,7 @@ public class DateUtils {
     public static final float toJulian(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
+
         return toJulian(c);
     }
 
@@ -276,7 +272,6 @@ public class DateUtils {
      * @throws ParseException if an unknown field value is given.
      */
     public static final String roll(String isoString, String fmt, int field, boolean up) throws ParseException {
-
         Calendar cal = GregorianCalendar.getInstance();
         cal.setTime(stringToDate(isoString, fmt));
         cal.roll(field, up);
@@ -311,11 +306,13 @@ public class DateUtils {
         }
         DateFormat df = null;
         try {
+
             if (format == null) {
                 df = new SimpleDateFormat();
             } else {
                 df = new SimpleDateFormat(format);
             }
+
             // setLenient avoids allowing dates like 9/32/2001
             // which would otherwise parse to 10/2/2001
             df.setLenient(false);
@@ -432,6 +429,7 @@ public class DateUtils {
      * @return
      */
     public static String dateToStringWithTime(Date date) {
+
         return dateToString(date, DATETIME_PATTERN);
     }
 
@@ -1438,10 +1436,6 @@ public class DateUtils {
 
 
     public static void main(String[] args) {
-        String str = "cd73d704-9a98-45d9-9495-78e51c00ea23$11.13声入人心iphone-750x1140.mp4";
-        System.out.println("str = " + str.substring(str.lastIndexOf("$")+1));
-
-
         Date nowDay = new Date();
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATE_ONLY));
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME));
