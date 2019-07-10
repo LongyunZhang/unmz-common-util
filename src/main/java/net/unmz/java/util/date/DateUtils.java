@@ -97,8 +97,7 @@ public class DateUtils {
         return f;
     }
 
-    public static String getGrpEndDate(String effdate, String loadEndDate,
-                                       String loadBeginDate) {
+    public static String getGrpEndDate(String effdate, String loadEndDate, String loadBeginDate) {
         long qoutDays = getDateQuot(effdate, loadEndDate);
         String endDate = "";
         if (qoutDays >= 365) {
@@ -202,7 +201,6 @@ public class DateUtils {
      * @return the days between two dates.
      */
     public static final int daysBetween(Calendar early, Calendar late) {
-
         return (int) (toJulian(late) - toJulian(early));
     }
 
@@ -216,7 +214,6 @@ public class DateUtils {
      * @return the julian day number
      */
     public static final float toJulian(Calendar c) {
-
         int Y = c.get(Calendar.YEAR);
         int M = c.get(Calendar.MONTH);
         int D = c.get(Calendar.DATE);
@@ -240,10 +237,8 @@ public class DateUtils {
      * @return the julian day number
      */
     public static final float toJulian(Date date) {
-
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-
         return toJulian(c);
     }
 
@@ -257,9 +252,7 @@ public class DateUtils {
      * @return
      * @throws ParseException
      */
-    public static final String dateIncrease(String isoString, String fmt,
-                                            int field, int amount) {
-
+    public static final String dateIncrease(String isoString, String fmt, int field, int amount) {
         try {
             Calendar cal = GregorianCalendar.getInstance();
             cal.setTime(stringToDate(isoString, fmt, true));
@@ -282,8 +275,7 @@ public class DateUtils {
      * @param fmt       use formating char's
      * @throws ParseException if an unknown field value is given.
      */
-    public static final String roll(String isoString, String fmt, int field,
-                                    boolean up) throws ParseException {
+    public static final String roll(String isoString, String fmt, int field, boolean up) throws ParseException {
 
         Calendar cal = GregorianCalendar.getInstance();
         cal.setTime(stringToDate(isoString, fmt));
@@ -301,9 +293,7 @@ public class DateUtils {
      * @param up        Indicates if rolling up or rolling down the field value.
      * @throws ParseException if an unknown field value is given.
      */
-    public static final String roll(String isoString, int field, boolean up)
-            throws ParseException {
-
+    public static final String roll(String isoString, int field, boolean up) throws ParseException {
         return roll(isoString, DATETIME_PATTERN, field, up);
     }
 
@@ -315,24 +305,17 @@ public class DateUtils {
      * @param lenient  日期越界标志
      * @return
      */
-    public static Date stringToDate(String dateText, String format,
-                                    boolean lenient) {
-
+    public static Date stringToDate(String dateText, String format, boolean lenient) {
         if (dateText == null) {
-
             return null;
         }
-
         DateFormat df = null;
-
         try {
-
             if (format == null) {
                 df = new SimpleDateFormat();
             } else {
                 df = new SimpleDateFormat(format);
             }
-
             // setLenient avoids allowing dates like 9/32/2001
             // which would otherwise parse to 10/2/2001
             df.setLenient(false);
@@ -352,7 +335,6 @@ public class DateUtils {
      * @return
      */
     public static Date stringToDate(String dateString, String format) {
-
         return stringToDate(dateString, format, LENIENT_DATE);
     }
 
@@ -450,7 +432,6 @@ public class DateUtils {
      * @return
      */
     public static String dateToStringWithTime(Date date) {
-
         return dateToString(date, DATETIME_PATTERN);
     }
 
@@ -1457,6 +1438,10 @@ public class DateUtils {
 
 
     public static void main(String[] args) {
+        String str = "cd73d704-9a98-45d9-9495-78e51c00ea23$11.13声入人心iphone-750x1140.mp4";
+        System.out.println("str = " + str.substring(str.lastIndexOf("$")+1));
+
+
         Date nowDay = new Date();
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATE_ONLY));
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME));
