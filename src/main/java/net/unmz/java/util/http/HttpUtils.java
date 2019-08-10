@@ -583,4 +583,9 @@ public class HttpUtils {
             super();
         }
     }
+
+    public static void main(String[] args) throws Exception {
+        String res = HttpUtils.doGet("http://10.10.132.186/api2?key=101014481");
+        System.out.println(res);
+    }
 }
