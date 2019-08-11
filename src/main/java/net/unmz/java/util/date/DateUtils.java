@@ -1435,8 +1435,31 @@ public class DateUtils {
 //    }
 
 
+    /**
+     * 获取指定日期的下一天
+     *
+     */
+    public static Date getNextDay(Date date) {
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, 1);
+        return cal.getTime();
+    }
+
+
     public static void main(String[] args) {
+        String data1 = "2019-08-31";
+        Date nowDay1 = DateUtils.stringToDate(data1);
+        Date nextDay2 = DateUtils.getNextDay(nowDay1);
+        System.out.println(DateUtils.dateToString(nextDay2, DateUtils.DATE_FORMAT_DATETIME));
+
+
         Date nowDay = new Date();
+        System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME));
+        Date nextDay = DateUtils.getNextDay(nowDay);
+        System.out.println(DateUtils.dateToString(nextDay, DateUtils.DATE_FORMAT_DATETIME));
+        System.out.println();
+
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATE_ONLY));
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.DATE_FORMAT_DATETIME));
         System.out.println(DateUtils.dateToString(nowDay, DateUtils.SHORT_DATE_FORMAT));
