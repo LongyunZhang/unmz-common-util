@@ -11,6 +11,8 @@
  *******************************************************/
 package net.unmz.java.util.date;
 
+import net.unmz.java.util.json.jackson.JacksonUtils;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -555,11 +557,20 @@ public class DateUtils2 {
             return true;
         }
 
-
+        public static Date getCurrentDate() throws Exception {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String sDate = simpleDateFormat.format(new Date());
+            Date date = null;
+            date = simpleDateFormat.parse(sDate);
+            return date;
+        }
 
 
         public static void main(String[] args) throws Exception {
             try {
+                Date date = getCurrentDate();
+                System.out.println(dateToStrLong(date));
+
                 //System.out.print(Integer.valueOf(getTwoDay("2006-11-03 12:22:10", "2006-11-02 11:22:09")));
             } catch (Exception e) {
                 throw new Exception();

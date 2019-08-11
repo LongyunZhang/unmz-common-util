@@ -12,9 +12,7 @@
 package net.unmz.java.util.json.gson;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +34,6 @@ public class GsonUtils {
             jsonArray.add("b");
             jsonObject.add("ids", jsonArray);
         }
-
-
 
         System.out.println(jsonObject.toString());
     }
