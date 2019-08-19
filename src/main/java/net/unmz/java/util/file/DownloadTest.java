@@ -15,8 +15,11 @@ package net.unmz.java.util.file;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 
 // https://codedestine.com/download-file-from-internet-in-java/s
@@ -33,5 +36,18 @@ public class DownloadTest {
         }catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private String downloadFromUrl(String url, String fileName) {
+        String fileSavePath = "存放地址";
+        try {
+            URL website = new URL(url);
+            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+            FileOutputStream fos = new FileOutputStream(fileSavePath);
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        } catch (Exception e) {
+            throw new RuntimeException("interactive roll error, download file from cms url exception");
+        }
+        return fileSavePath;
     }
 }

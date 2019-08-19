@@ -166,6 +166,13 @@
             <version>27.0.1-jre</version>
         </dependency>
 
+        <!--图片转视频-->
+        <dependency>
+            <groupId>com.xuggle.mediatool</groupId>
+            <artifactId>imediawriter</artifactId>
+            <version>1.0</version>
+        </dependency>
+
 
     </dependencies>
 
